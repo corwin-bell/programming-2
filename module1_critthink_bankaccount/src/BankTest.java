@@ -1,5 +1,6 @@
 public class BankTest {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        BankAccount myAccount = new BankAccount("Corwin", "Bell", 1);
+        myAccount.accountSummary();
     }
 }
