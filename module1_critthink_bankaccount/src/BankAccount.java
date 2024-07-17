@@ -7,6 +7,12 @@ public class BankAccount {
 
     // Methods
     // constructor():  initialize balance to zero
+    public BankAccount() {
+        this.firstName = "unknown";
+        this.lastName = "unknown";
+        this.accountID = 0;
+        this.balance = 0;
+    }
     public BankAccount(String firstName, String lastName, int accountID) {
         this.firstName = firstName;
         this.lastName = lastName;
