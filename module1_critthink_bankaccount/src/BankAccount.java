@@ -6,7 +6,7 @@ public class BankAccount {
     protected double balance;
 
     // Methods
-    // constructor():  initialize balance to zero
+    // constructors
     public BankAccount() {
         this.firstName = "unknown";
         this.lastName = "unknown";

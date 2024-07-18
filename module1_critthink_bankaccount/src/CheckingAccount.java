@@ -1,16 +1,14 @@
 public class CheckingAccount extends BankAccount{
-    // Has an interest rate attribute
     private double interestRate;
 
+    // Constructor adding to super constructor
     CheckingAccount(String firstName, String lastName, int accountID, double interestRate) {
         super(firstName, lastName, accountID);
         this.interestRate = interestRate;
     }
 
-    // Allows overdraft withdrawals and charges a $30 fee
-    // Methods:
-    // processWithdrawal() - will display a negative balance that includes a $30 overdraft fee and denotes that a fee has been accessed
-    // shouldn't this override BankAccount.withdrawal?
+    // Methods
+    // processWithdrawal - display negative balance that includes a $30 overdraft fee.
     public void processWithdrawal(double amountOut) throws Exception{
         if (amountOut < 0) {
             throw new Exception(String.format("NegativeNumberException: deposit amount (%.2f) not allowed, must be a postive number", amountOut));
