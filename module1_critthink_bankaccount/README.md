@@ -5,6 +5,6 @@ Instructor: Dr. George
 Implement a superclass BankAccount and a subclass CheckingAccount that inherits from BankAccount.
 Ensure program has two required classes and a test class.
 
-## Git Repo and screenshots
+## Git Repo and screenshots of execution and output
 link to git repo project folder
 remember to include zip of source code
