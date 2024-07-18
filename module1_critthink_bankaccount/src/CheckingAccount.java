@@ -3,12 +3,10 @@ public class CheckingAccount extends BankAccount{
     private double interestRate;
 
     CheckingAccount(String firstName, String lastName, int accountID, double interestRate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.accountID = accountID;
-        this.balance = 0;
-        this.interestRate = 0;
+        super(firstName, lastName, accountID);
+        this.interestRate = interestRate;
     }
+
     // Allows overdraft withdrawals and charges a $30 fee
     // Methods:
     // processWithdrawal() - will display a negative balance that includes a $30 overdraft fee and denotes that a fee has been accessed
