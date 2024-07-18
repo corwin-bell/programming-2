@@ -20,12 +20,22 @@ public class BankAccount {
         this.balance = 0;
     }
     // deposit() - will accept a single value double parameter; the parameter value is added to the existing balance
-    public void deposit(double amountIn) {
-        balance += amountIn;
+    public void deposit(double amountIn) throws Exception{
+        if (amountIn < 0) {
+            throw new Exception(String.format("NegativeNumberException: deposit amount (%.2f) not allowed, must be a postive number", amountIn));
+        }
+        else {
+            balance += amountIn;
+        }
     }
     // withdrawal() - accepts a single value double dollar amount; the parameter value is subtracted from the existing balance
-    public void withdrawal(double amountOut) {
-        balance -= amountOut;
+    public void withdrawal(double amountOut) throws Exception{
+        if (amountOut < 0) {
+            throw new Exception(String.format("NegativeNumberException: deposit amount (%.2f) not allowed, must be a postive number", amountOut));
+        }
+        else {
+            balance -= amountOut;
+        }
     }
     // Setters and getters for firstName, lastName, and accountID
     public void setFirstName(String firstName) {
@@ -42,12 +52,11 @@ public class BankAccount {
         return balance;
     }
     // accountSummary() - prints all account information
-    public void accountSummary() {
-        String summaryString = String.format("First Name: %s \nLast Name: %s \nAccount ID: %d \nBalance: $%.2f",
+    public String accountSummary() {
+        return String.format("First Name: %s, Last Name: %s, Account ID: %d, Balance: $%.2f, ",
         firstName,
         lastName,
         accountID,
         balance);
-        System.out.println(summaryString);
     }
 }
