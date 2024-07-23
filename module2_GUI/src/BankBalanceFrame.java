@@ -22,25 +22,38 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
 
-public class BankBalanceFrame extends JFrame {
-    // create private fields
+public class BankBalanceFrame {
+    public static void main(String[] args) {
+        // create components
+            JFrame BankBalanceFrame = new JFrame("Bank Balance Calculator");
+            JPanel BankBalancePanel = new JPanel();
+            // Deposit components
+            JTextField DepositField = new JTextField(15);
+            DepositField.setEditable(true);
+            JButton DepositButton = new JButton("Deposit");
+            // Withdraw components
+            JButton withdrawButton = new JButton("Withdraw");
+            // Balance components
+            JTextField BalanceField = new JTextField(15);
+            DepositField.setEditable(false);
+        
+        // add components to panel
+        BankBalancePanel.add(DepositField);
+        BankBalancePanel.add(DepositButton);
+        BankBalancePanel.add(BalanceField);
+        // add panel to frame
+        BankBalanceFrame.add(BankBalancePanel); 
 
-    // create constructor
-        // specify layout
-        // set title
-        // create labels
-        // create button with action listener
-        // use gridbag layout
     // override actionPerformed method
         // on click show updated balance
-    public static void main(String[] args) {
-        BankBalanceFrame MyBankBalance = new BankBalanceFrame();
-        MyBankBalance.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        MyBankBalance.pack();
-        MyBankBalance.setVisible(true);
+        
+        BankBalanceFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        BankBalanceFrame.pack();
+        BankBalanceFrame.setVisible(true);
 
     }
 }
