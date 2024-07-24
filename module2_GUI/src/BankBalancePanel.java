@@ -25,13 +25,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class BankBalancePanel extends JPanel implements ActionListener{
+public class BankBalancePanel extends JPanel { // removed implements ActionListener since now declared for each button
     // Deposit components
     private JFormattedTextField depositField;
     private JLabel depositLabel;
     private JButton depositButton;
+    
     // Withdraw components
-    private JTextField withdrawField;
+    private JFormattedTextField withdrawField;
     private JLabel withdrawLabel;
     private JButton withdrawButton;
 
@@ -42,20 +43,43 @@ public class BankBalancePanel extends JPanel implements ActionListener{
 
     // default constructor
     public BankBalancePanel() {
-        // Deposit components
+        
+        // set deposit components
         depositField = new JFormattedTextField(NumberFormat.getNumberInstance());
         depositField.setColumns(15);
         depositField.setText("0");
         depositField.setEditable(true);
         depositLabel = new JLabel("Deposit: ");
         depositButton = new JButton("Deposit");
-        depositButton.addActionListener(this);
-        // Withdraw components
-        withdrawField = new JTextField(15);
+        
+        // deposit action
+        depositButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double deposit = ((Number) depositField.getValue()).doubleValue();
+                balance += deposit;
+                balanceField.setText(Double.toString(balance));
+            }
+        });
+        
+        // set withdraw components
+        withdrawField = new JFormattedTextField(NumberFormat.getNumberInstance());
+        withdrawField.setColumns(15);
+        withdrawField.setText("0");
         withdrawField.setEditable(true);
         withdrawLabel = new JLabel("Withdraw: ");
         withdrawButton = new JButton("Withdraw");
-
+        
+        // withdraw action
+        withdrawButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double withdraw = ((Number) withdrawField.getValue()).doubleValue();
+                balance -= withdraw;
+                balanceField.setText(Double.toString(balance));
+            }
+        });
+        
         // Balance components
         balance = 0;
         balanceField = new JTextField(15);
@@ -74,12 +98,12 @@ public class BankBalancePanel extends JPanel implements ActionListener{
     }
     // override actionPerformed method
         // on click show updated balance
-    @Override
-    public void actionPerformed(ActionEvent event) {
-        double deposit = ((Number) depositField.getValue()).doubleValue();
-        balance += deposit;
-        balanceField.setText(Double.toString(balance));
-    }
+    // @Override
+    // public void actionPerformed(ActionEvent event) {
+    //     double deposit = ((Number) depositField.getValue()).doubleValue();
+    //     balance += deposit;
+    //     balanceField.setText(Double.toString(balance));
+    // }
 
     public static void main(String[] args) {
         JFrame bankFrame = new JFrame();
