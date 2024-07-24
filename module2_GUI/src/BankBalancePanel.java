@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -54,8 +55,14 @@ public class BankBalancePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double deposit = ((Number) depositField.getValue()).doubleValue();
-                balance += deposit;
-                balanceField.setText(Double.toString(balance));
+                if (deposit >= 0) {
+                    balance += deposit;
+                    balanceField.setText(Double.toString(balance));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,"Enter a positive dollar amount!");
+                }
+                
             }
         });
         
@@ -72,8 +79,13 @@ public class BankBalancePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double withdraw = ((Number) withdrawField.getValue()).doubleValue();
-                balance -= withdraw;
-                balanceField.setText(Double.toString(balance));
+                if (withdraw >= 0) {
+                    balance -= withdraw;
+                    balanceField.setText(Double.toString(balance));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,"Enter a positive dollar amount!");
+                }
             }
         });
         
