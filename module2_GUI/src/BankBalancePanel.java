@@ -24,11 +24,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JFrame;
 
-public class BankBalancePanel extends JPanel{ // TODO: add implements ActionListener
+public class BankBalancePanel extends JPanel implements ActionListener{
     // Deposit components
-    private JTextField depositField;
+    private JFormattedTextField depositField;
     private JLabel depositLabel;
     private JButton depositButton;
     // Withdraw components
@@ -37,16 +36,20 @@ public class BankBalancePanel extends JPanel{ // TODO: add implements ActionList
     private JButton withdrawButton;
 
     // Balance components
+    private double balance;
     private JTextField balanceField;
     private JLabel balanceLabel;
 
     // default constructor
     public BankBalancePanel() {
         // Deposit components
-        depositField = new JTextField(15);
+        depositField = new JFormattedTextField(NumberFormat.getNumberInstance());
+        depositField.setColumns(15);
+        depositField.setText("0");
         depositField.setEditable(true);
         depositLabel = new JLabel("Deposit: ");
         depositButton = new JButton("Deposit");
+        depositButton.addActionListener(this);
         // Withdraw components
         withdrawField = new JTextField(15);
         withdrawField.setEditable(true);
@@ -54,8 +57,9 @@ public class BankBalancePanel extends JPanel{ // TODO: add implements ActionList
         withdrawButton = new JButton("Withdraw");
 
         // Balance components
+        balance = 0;
         balanceField = new JTextField(15);
-        depositField.setEditable(false);
+        balanceField.setEditable(false);
         balanceLabel = new JLabel("Balance: ");
         
         // add components to panel
@@ -70,4 +74,24 @@ public class BankBalancePanel extends JPanel{ // TODO: add implements ActionList
     }
     // override actionPerformed method
         // on click show updated balance
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        double deposit = ((Number) depositField.getValue()).doubleValue();
+        balance += deposit;
+        balanceField.setText(Double.toString(balance));
+    }
+
+    public static void main(String[] args) {
+        JFrame bankFrame = new JFrame();
+        
+        // add panel to frame
+        BankBalancePanel bankBalancePanel = new BankBalancePanel();
+        bankFrame.add(bankBalancePanel);
+        
+        // set frame attributes
+        bankFrame.pack();
+        bankFrame.setTitle("Bank App");
+        bankFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        bankFrame.setVisible(true);
+}
 }
