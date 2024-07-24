@@ -11,9 +11,6 @@
  * Submit screenshots of your program's execution and output. Include all appropriate source code in a zip file.
 */
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -21,11 +18,11 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class BankBalancePanel extends JPanel { // removed implements ActionListener since now declared for each button
+public class BankBalancePanel extends JPanel {
+    
     // Deposit components
     private JFormattedTextField depositField;
     private JLabel depositLabel;
@@ -96,26 +93,18 @@ public class BankBalancePanel extends JPanel { // removed implements ActionListe
         add(balanceLabel);
         add(balanceField);
     }
-    // override actionPerformed method
-        // on click show updated balance
-    // @Override
-    // public void actionPerformed(ActionEvent event) {
-    //     double deposit = ((Number) depositField.getValue()).doubleValue();
-    //     balance += deposit;
-    //     balanceField.setText(Double.toString(balance));
-    // }
 
     public static void main(String[] args) {
-        JFrame bankFrame = new JFrame();
+        JFrame bankFrame = new JFrame("Bank App");
         
         // add panel to frame
         BankBalancePanel bankBalancePanel = new BankBalancePanel();
         bankFrame.add(bankBalancePanel);
         
         // set frame attributes
-        bankFrame.pack();
-        bankFrame.setTitle("Bank App");
-        bankFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         bankFrame.setVisible(true);
+        bankFrame.pack();
+        bankFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 }
 }
