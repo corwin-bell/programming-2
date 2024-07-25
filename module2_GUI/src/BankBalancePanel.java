@@ -1,16 +1,3 @@
-/* 
- * Create a simple Graphical User Interface (GUI) Bank Balance application. 
- * The application must obtain the BankAccount balance from a user, and then 
- * display that balance within a JPanel when the user selects a button. 
- * The program should allow for the user to deposit and withdraw funds from their account using a simple interface. 
- * The remaining balance in the account should be displayed before exiting the program. 
- * Ensure that your application includes the following components:
-    * JPanel
-    * JButton
-    * ActionListener
- * Submit screenshots of your program's execution and output. Include all appropriate source code in a zip file.
-*/
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -57,7 +44,7 @@ public class BankBalancePanel extends JPanel {
                 double deposit = ((Number) depositField.getValue()).doubleValue();
                 if (deposit >= 0) {
                     balance += deposit;
-                    balanceField.setText(Double.toString(balance));
+                    balanceField.setText(Double.toString(balance)); 
                 }
                 else {
                     JOptionPane.showMessageDialog(null,"Enter a positive dollar amount!");
@@ -116,7 +103,6 @@ public class BankBalancePanel extends JPanel {
         // set frame attributes
         bankFrame.setVisible(true);
         bankFrame.pack();
-        bankFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-}
+        bankFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
+    }
 }
