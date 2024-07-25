@@ -12,6 +12,11 @@ Create a simple Graphical User Interface (GUI) Bank Balance application. The app
 ### Git repo screenshot
 ![Screenshot of Git repo](git_repo.png "Screenshot of git repo")
 ### Execution screenshot
-![Screenshot of Execution](execution.png "Screenshot of Execution")
+#### Initial State
+![initial state](image.png)
+#### Deposit $50
+![deposit](image-1.png)
+#### Withdraw $25
+![withdraw](image-2.png)
 
 converted to PDF using [md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)
