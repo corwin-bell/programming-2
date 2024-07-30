@@ -6,20 +6,32 @@
 The menu option should display the initial random hue each time selected for a single execution of the program.
 4. When the user selects the fourth menu option then the program exits.
  */
-
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-public class MenuGUI extends Application{
-    public void start (Stage s) {
-        s.setTitle("Menu Bar GUI");
-        
-        // add textbox to a pane in the Scene?
 
+public class MenuGUI extends Application{
+    public void start (Stage stage) {
+        stage.setTitle("Menu Bar GUI");
+        // create a gridpane and scene
+        GridPane gridPane = new GridPane(); 
+        Scene scene = new Scene(gridPane, 500, 300);
+
+        // add GridPane settings
+        gridPane.setPadding(new Insets(10, 10, 10, 10)); // Padding around  grid
+        gridPane.setHgap(10);                            // Spacing between columns
+        gridPane.setVgap(10); 
+
+        // add textbox
+        TextField textField = new TextField();
+        textField.setEditable(false);
+        gridPane.add(textField, 1, 0);
         // add menu
         Menu menu = new Menu("Menu");
         // item 1: print current date & time to text box
@@ -33,13 +45,9 @@ public class MenuGUI extends Application{
         // create menu bar and add menus
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().add(menu);
-        
-        // create a VBox 
-        VBox vBox = new VBox(menuBar); 
-        // create a scene 
-        Scene scene = new Scene(vBox, 500, 300); 
+        gridPane.add(menuBar, 0, 0);
         // set the scene 
-        s.setScene(scene); 
-        s.show();
+        stage.setScene(scene); 
+        stage.show();
     }
 }
