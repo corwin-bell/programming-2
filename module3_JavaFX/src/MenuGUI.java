@@ -17,7 +17,11 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class MenuGUI extends Application{
@@ -57,9 +61,16 @@ public class MenuGUI extends Application{
             }
         });
         // item 3: change frame background color to random hue of green
+        MenuItem m3 = new MenuItem("Change Hue");
+        m3.setOnAction(event -> {
+            int g_val = (int)(Math.random()*256);
+            Color green_hue = Color.rgb(0, g_val, 0);
+            Background background = new Background(new BackgroundFill(green_hue, CornerRadii.EMPTY, Insets.EMPTY));
+            gridPane.setBackground(background);
+        });
         // item 4: exit
         // add items up to scene    
-        menu.getItems().addAll(m1, m2); // I think I can add other menu items to the method
+        menu.getItems().addAll(m1, m2, m3); // I think I can add other menu items to the method
         // create menu bar and add menus
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().add(menu);
