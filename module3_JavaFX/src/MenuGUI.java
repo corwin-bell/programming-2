@@ -8,18 +8,38 @@ The menu option should display the initial random hue each time selected for a s
  */
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 public class MenuGUI extends Application{
     public void start (Stage s) {
-        s.setTitle("Menu Bar");
-        // create fx menu bar with 4 items
-        // create uneditable textbox
-        // add and define action listeners to menu items
+        s.setTitle("Menu Bar GUI");
+        
+        // add textbox to a pane in the Scene?
+
+        // add menu
+        Menu menu = new Menu("Menu");
         // item 1: print current date & time to text box
+        MenuItem m1 = new MenuItem("Date & Time");
+        
         // item 2: write textbox contents to file log.txt
         // item 3: change frame background color to random hue of green
         // item 4: exit
         // add items up to scene    
+        menu.getItems().addAll(m1); // I think I can add other menu items to the method
+        // create menu bar and add menus
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().add(menu);
+        
+        // create a VBox 
+        VBox vBox = new VBox(menuBar); 
+        // create a scene 
+        Scene scene = new Scene(vBox, 500, 300); 
+        // set the scene 
+        s.setScene(scene); 
         s.show();
     }
 }
