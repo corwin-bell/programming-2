@@ -6,6 +6,8 @@
 The menu option should display the initial random hue each time selected for a single execution of the program.
 4. When the user selects the fourth menu option then the program exits.
  */
+import java.util.Date;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -31,12 +33,16 @@ public class MenuGUI extends Application{
         // add textbox
         TextField textField = new TextField();
         textField.setEditable(false);
+        textField.setPrefColumnCount(26);
         gridPane.add(textField, 1, 0);
         // add menu
         Menu menu = new Menu("Menu");
         // item 1: print current date & time to text box
         MenuItem m1 = new MenuItem("Date & Time");
-        
+        m1.setOnAction(event -> {
+            Date date = new Date();
+            textField.setText("Current date and time is: " + date);
+        });
         // item 2: write textbox contents to file log.txt
         // item 3: change frame background color to random hue of green
         // item 4: exit
