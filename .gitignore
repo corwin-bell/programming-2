@@ -28,6 +28,6 @@ replay_pid*
 
 #example files
 */src/example_files/
-
+log.txt
 # vscode config files
 */.vscode/*.json
