@@ -6,11 +6,14 @@
 The menu option should display the initial random hue each time selected for a single execution of the program.
 4. When the user selects the fourth menu option then the program exits.
  */
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -41,6 +44,7 @@ public class MenuGUI extends Application{
         textField.setEditable(false);
         textField.setPrefColumnCount(26);
         gridPane.add(textField, 1, 0);
+
         // add menu
         Menu menu = new Menu("Menu");
         // item 1: print current date & time to text box
@@ -56,8 +60,11 @@ public class MenuGUI extends Application{
                 PrintWriter outFS = new PrintWriter(fileByteStream);) {
                 outFS.println(textField.getText());
             } 
-            catch (Exception e) {
-                // TODO: handle exception
+            catch (FileNotFoundException e) {
+                System.err.println(e.getMessage());
+            }
+            catch (IOException e) {
+                System.err.println(e.getMessage());
             }
         });
         // item 3: change frame background color to random hue of green
@@ -69,12 +76,18 @@ public class MenuGUI extends Application{
             gridPane.setBackground(background);
         });
         // item 4: exit
+        MenuItem m4 = new MenuItem("Quit");
+        m4.setOnAction(event -> {
+            Platform.exit();
+        });
         // add items up to scene    
-        menu.getItems().addAll(m1, m2, m3); // I think I can add other menu items to the method
+        menu.getItems().addAll(m1, m2, m3, m4); // I think I can add other menu items to the method
+        
         // create menu bar and add menus
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().add(menu);
         gridPane.add(menuBar, 0, 0);
+        
         // set the scene 
         stage.setScene(scene); 
         stage.show();
