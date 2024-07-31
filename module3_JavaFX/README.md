@@ -9,20 +9,25 @@ Create a user interface that has a top bar that includes a menu. The menu should
 4. When the user selects the fourth menu option then the program exits.
 
 ## Git Repo and screenshots of execution and output
-[Git Project Folder Link](https://github.com/corwin-bell/programming-2/tree/main/module3_javafx) <br>
+[Github Project Folder Link](https://github.com/corwin-bell/programming-2/tree/main/module3_JavaFX) <br>
+
 ### Git repo screenshot
-![Screenshot of Git repo](git_repo.png "Screenshot of git repo")
-### Execution screenshot
-#### Initial State
-![Initial state](image.png)
-<img src="image.png" alt="Initial state" width="200"/>
+<img src="image-5.png" alt="github repo" width="500"/>
+
+### Execution screenshots
+#### Initial State 
+<img src="image.png" alt="Initial state" width="500"/>
+
 #### Date & Time
-![date & time](image-1.png)
-#### Export Date & Time
-![export date & time](image-2.png)
+<img src="image-1.png" alt="date & time" width="500"/>
+
+#### Export Date & Time to log.txt
+<img src="image-2.png" alt="export date & time" width="500"/>
+
 #### Change to Random Hue of Green
-![random hue of green](image-3.png)
+<img src="image-3.png" alt="random hue of green" width="500"/>
+
 #### Quit Program
-![quit program](image-4.png)
+<img src="image-4.png" alt="quit program" width="500"/>
 
 converted to PDF using [md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)
