@@ -12,11 +12,11 @@ Create a user interface that has a top bar that includes a menu. The menu should
 [Github Project Folder Link](https://github.com/corwin-bell/programming-2/tree/main/module3_JavaFX) <br>
 
 ### Git repo screenshot
-<img src="image-5.png" alt="github repo" width="500"/>
+<img src="image-5.png" alt="github repo" width="800"/>
 
 ### Execution screenshots
 #### Initial State 
-<img src="image.png" alt="Initial state" width="500"/>
+<img src="image-6.png" alt="Initial state" width="500"/>
 
 #### Date & Time
 <img src="image-1.png" alt="date & time" width="500"/>
