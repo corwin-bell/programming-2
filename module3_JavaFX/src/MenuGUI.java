@@ -1,11 +1,3 @@
-/*
- * Create a user interface that has a top bar that includes a menu. The menu should have four items:
-1. When the user selects the first menu option, then the date and time should be printed in a text box.
-2. When the user selects the second menu option, then the text box contents should be written to a text file named "log.txt."
-3. When the user selects the third menu item then the frame background color changes to random color hue of the color green. 
-The menu option should display the initial random hue each time selected for a single execution of the program.
-4. When the user selects the fourth menu option then the program exits.
- */
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,13 +22,14 @@ import javafx.stage.Stage;
 public class MenuGUI extends Application{
     public void start (Stage stage) {
         stage.setTitle("Menu Bar GUI");
+        
         // create a gridpane and scene
         GridPane gridPane = new GridPane(); 
         Scene scene = new Scene(gridPane, 500, 300);
 
         // add GridPane settings
-        gridPane.setPadding(new Insets(10, 10, 10, 10)); // Padding around  grid
-        gridPane.setHgap(10);                            // Spacing between columns
+        gridPane.setPadding(new Insets(10, 10, 10, 10));
+        gridPane.setHgap(10);                           
         gridPane.setVgap(10); 
 
         // add textbox
@@ -47,12 +40,14 @@ public class MenuGUI extends Application{
 
         // add menu
         Menu menu = new Menu("Menu");
+        
         // item 1: print current date & time to text box
         MenuItem m1 = new MenuItem("Date & Time");
         m1.setOnAction(event -> {
             Date date = new Date();
             textField.setText("Current date and time is: " + date);
         });
+        
         // item 2: write textbox contents to file log.txt
         MenuItem m2 = new MenuItem("Export Date");
         m2.setOnAction(event -> {
@@ -67,6 +62,7 @@ public class MenuGUI extends Application{
                 System.err.println(e.getMessage());
             }
         });
+        
         // item 3: change frame background color to random hue of green
         MenuItem m3 = new MenuItem("Change Hue");
         m3.setOnAction(event -> {
@@ -75,13 +71,14 @@ public class MenuGUI extends Application{
             Background background = new Background(new BackgroundFill(green_hue, CornerRadii.EMPTY, Insets.EMPTY));
             gridPane.setBackground(background);
         });
+        
         // item 4: exit
         MenuItem m4 = new MenuItem("Quit");
         m4.setOnAction(event -> {
             Platform.exit();
         });
-        // add items up to scene    
-        menu.getItems().addAll(m1, m2, m3, m4); // I think I can add other menu items to the method
+            
+        menu.getItems().addAll(m1, m2, m3, m4);
         
         // create menu bar and add menus
         MenuBar menuBar = new MenuBar();
