@@ -16,19 +16,20 @@ public class Sphere extends Shape{
 
     @Override
     double surfaceArea() {
-        return 4 * Math.PI * Math.pow(radius, 2);
+        return 4.0 * Math.PI * Math.pow(radius, 2);
     }
 
     @Override
     double volume() {
-        // TODO Auto-generated method stub
-        return 0;
+        return (4.0/3.0) * Math.PI * Math.pow(radius, 3);
     }
 
     @Override
     public String toString() {
-        String infoString = String.format("Sphere stats\nRadius: %.2f\nSurface Area: %.2f\n", getRadius(), surfaceArea());
+        String infoString = String.format("Sphere stats\nRadius: %.2f\nSurface Area: %.2f\nVolume: %.2f\n",
+        radius,
+        surfaceArea(),
+        volume());
         return infoString;
     }
-
 }
