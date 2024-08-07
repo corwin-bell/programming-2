@@ -1,4 +1,4 @@
-public class Cylinder  extends Sphere{
+public class Cylinder extends Sphere{
     private double radius;
     private double height;
 
@@ -33,7 +33,8 @@ public class Cylinder  extends Sphere{
 
     @Override
     public String toString() {
-        String infoString = String.format("Cylinder stats\nRadius: %.2f\nSurface Area: %.2f\nVolume: %.2f\n",
+        String infoString = String.format("Cylinder stats\nRadius: %.2f\nHeight: %.2f\nSurface Area: %.2f\nVolume: %.2f\n",
+        height,
         radius,
         surfaceArea(),
         volume());
