@@ -1,18 +1,21 @@
-## Getting Started
+Student: Corwin Bell <br>
+Course: CS 372 - Programming 2 <br>
+Instructor: Dr. George <br>
+# Module 4 Option 1: Abstract Shape Class
+Create an abstract Shape class with abstract methods and extend to the following concrete classes:
+1. Sphere
+2. Cylinder
+3. Cone
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+In a Driver Class instantiate classes, add to array, and print shape information
 
-## Folder Structure
+## Git Repo and screenshots of execution and output
+[Github Project Folder Link](https://github.com/corwin-bell/programming-2/tree/main/module4_oop) <br>
 
-The workspace contains two folders by default, where:
+### Git repo screenshot
+<img src="image-5.png" alt="github repo" width="800"/>
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### Execution screenshot
+![alt text](image.png)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+converted to PDF using [md-to-pdf](https://github.com/simonhaenisch/md-to-pdf)
