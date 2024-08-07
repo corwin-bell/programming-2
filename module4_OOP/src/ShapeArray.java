@@ -1,7 +1,7 @@
 public class ShapeArray {
     public static void main(String[] args) {
         // intantiate shapes
-        Sphere sphere = new Sphere(0);
+        Sphere sphere = new Sphere(5);
         // add shapes to array
         Shape[] shapeArray = new Shape[]{sphere};
 
