@@ -16,7 +16,7 @@ In a Driver Class instantiate classes, add to array, and print shape information
 [Github Project Folder Link](https://github.com/corwin-bell/programming-2/tree/main/module4_OOP) <br>
 
 ### Git repo screenshot
-<img src="image-5.png" alt="github repo" width="800"/>
+<img src="image-1.png" alt="github repo" width="800"/>
 
 ### Execution screenshot
 ![alt text](image.png)
