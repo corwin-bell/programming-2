@@ -9,6 +9,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * extends JPanel with some preset components to support basic bank user interface with
+ * deposits, withdrawals, and balance reporting
+ */
 public class BankBalancePanel extends JPanel {
     
     // Deposit components
