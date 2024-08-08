@@ -19,6 +19,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+/**
+ * extends JavaFX Application to provide a simple menu interface
+ */
 public class MenuGUI extends Application{
     public void start (Stage stage) {
         stage.setTitle("Menu Bar GUI");
