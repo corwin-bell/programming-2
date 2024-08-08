@@ -1,3 +1,6 @@
+/**
+ * extends BankAccount with inclusion of overdraft fee and interest rate
+ */
 public class CheckingAccount extends BankAccount{
     private double interestRate;
 
@@ -8,7 +11,11 @@ public class CheckingAccount extends BankAccount{
     }
 
     // Methods
-    // processWithdrawal - display negative balance that includes a $30 overdraft fee.
+    /** 
+     * display negative balance that includes a $30 overdraft fee
+     * @param amountOut
+     * @throws Exception
+     */
     public void processWithdrawal(double amountOut) throws Exception{
         if (amountOut < 0) {
             throw new Exception(String.format("NegativeNumberException: deposit amount (%.2f) not allowed, must be a postive number", amountOut));
@@ -23,7 +30,11 @@ public class CheckingAccount extends BankAccount{
             }
         }
     }
-    // displayAccount() - should display all superclass attributes and provides an additional interest rate
+    
+    /**
+     * displays all superclass attributes and provides interest rate 
+     * @return String
+     */
     @Override
     public String accountSummary() {
         return super.accountSummary() + String.format("Interest rate: %.2f%%\n", interestRate * 100);

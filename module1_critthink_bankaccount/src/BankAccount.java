@@ -1,3 +1,5 @@
+/** The BankAccount class provides basic members and methods for a bank account.
+*/
 public class BankAccount {
     // Fields
     protected String firstName;
@@ -5,8 +7,7 @@ public class BankAccount {
     protected int accountID;
     protected double balance;
 
-    // Methods
-    // constructors
+    // Constructors
     public BankAccount() {
         this.firstName = "unknown";
         this.lastName = "unknown";
@@ -19,7 +20,12 @@ public class BankAccount {
         this.accountID = accountID;
         this.balance = 0;
     }
-    // deposit() - will accept a single value double parameter; the parameter value is added to the existing balance
+    // Methods
+    /**
+     * will accept a single value double parameter; the parameter value is added to the existing balance. 
+     * @param amountIn
+     * @throws Exception
+     */
     public void deposit(double amountIn) throws Exception{
         if (amountIn < 0) {
             throw new Exception(String.format("NegativeNumberException: deposit amount (%.2f) not allowed, must be a postive number", amountIn));
@@ -28,7 +34,12 @@ public class BankAccount {
             balance += amountIn;
         }
     }
-    // withdrawal() - accepts a single value double dollar amount; the parameter value is subtracted from the existing balance
+    
+    /**
+     * accepts a single value double dollar amount; the parameter value is subtracted from the existing balance 
+     * @param amountOut
+     * @throws Exception
+     */
     public void withdrawal(double amountOut) throws Exception{
         if (amountOut < 0) {
             throw new Exception(String.format("NegativeNumberException: deposit amount (%.2f) not allowed, must be a postive number", amountOut));
@@ -37,7 +48,8 @@ public class BankAccount {
             balance -= amountOut;
         }
     }
-    // Setters and getters for firstName, lastName, and accountID
+    
+    // Setters and getters
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -47,11 +59,14 @@ public class BankAccount {
     public void setAccountID(int accountID) {
         this.accountID = accountID;
     }
-    // getBalance() getter to return the balance
     public double getBalance() {
         return balance;
     }
-    // accountSummary() - prints all account information
+    
+    /** 
+     * prints all account information
+     * @return String
+     */
     public String accountSummary() {
         return String.format("First Name: %s, Last Name: %s, Account ID: %d, Balance: $%.2f, ",
         firstName,
