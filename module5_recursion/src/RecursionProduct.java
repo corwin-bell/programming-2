@@ -8,36 +8,40 @@ import java.util.Scanner;
 public class RecursionProduct {
     
     // get set of integers from user
-    public static int[] getUserInput(int counter) {
+    public static long[] getUserInput(int len) {
+        // try with resources block to ensure scanner closes after use
         try (Scanner scnr = new Scanner(System.in);) {
-            System.out.printf("Enter %d integers separated with a space:", counter);
-            int[] intArray = new int[counter];
-            for (int i = 0; i < counter; i++) {
+            System.out.printf("Enter %d integers separated with a space:", len);
+            long[] intArray = new long[len];
+            for (int i = 0; i < len; i++) {
                 intArray[i] = scnr.nextInt();
             }
             return intArray;
         }
     }
     // define recursionProduct method
-    public static int recursionProduct(int[] intArray, int counter, int product) {
+    public static long recursionProduct(long[] intArray, int counter, long product) {
         // base case for when counter == 0
-        if (counter == 0) {
+        if (counter == intArray.length - 1) {
+            String printString = String.format("%d * %d = ", product, intArray[counter]); 
             product *= intArray[counter];
-            System.out.printf("Current index is: %d \nProduct is: %d\n", counter, product);
+            System.out.println(printString + product);
             return product;
         }
         // recursive case for when counter > 0 
         else {
+            String printString = String.format("%d * %d = ", product, intArray[counter]); 
             product *= intArray[counter];
-            System.out.printf("Current index is: %d \nProduct is: %d\n", counter, product);
-            return recursionProduct(intArray, counter - 1, product);
+            System.out.println(printString + product);
+            return recursionProduct(intArray, counter + 1, product);
         }
     }      
     
     public static void main(String[] args) throws Exception {
-        int counter = 5;
-        int[] intArray = getUserInput(counter);
-        int product = 1;
-        System.out.println("The product is: " + recursionProduct(intArray, counter - 1, product));
+        // setting input and product integers as long to support large integers
+        long[] intArray = getUserInput(5);
+        long product = 1;
+        int counter = 0;
+        System.out.println("The product is: " + recursionProduct(intArray, counter, product));
     }
 }
