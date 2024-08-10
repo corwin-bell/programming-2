@@ -2,24 +2,38 @@
  * Using recursion, create a program that will allow a user to enter five numbers. 
  * The program will provide the product of all five numbers using recursive methods.
  */
-public class RecursionProduct {
-    // Declare variables
-        // counter for number of numbers allowed
-        // scanner for user input
-        // array to store numbers
-        // int to store product 
 
+import java.util.Scanner;
+
+public class RecursionProduct {
+    
+    // get set of integers from user
+    public static int[] getUserInput(int counter) {
+        try (Scanner scnr = new Scanner(System.in);) {
+            System.out.printf("Enter %d integers separated with a space:", counter);
+            int[] intArray = new int[counter];
+            for (int i = 0; i < counter; i++) {
+                intArray[i] = scnr.nextInt();
+            }
+            return intArray;
+        }
+    }
     // define recursionProduct method
-    public static int recursionProduct() {
+    public static int recursionProduct(int[] intArray, int product) {
         // base case for when counter == 0
             // product *= array[0]
         // recursive case for when counter > 0
             // product *= recursionProduct(array[N-1])
         // return product
-        return 0;
+        return product;
     }      
     
     public static void main(String[] args) throws Exception {
-        System.out.println("The product is: " + recursionProduct());
+        int[] intArray = getUserInput(5);
+        for (int integer: intArray) {
+            System.out.println(integer); 
+        }
+        int product = 0;
+        System.out.println("The product is: " + recursionProduct(intArray, product));
     }
 }
