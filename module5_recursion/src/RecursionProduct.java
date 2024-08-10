@@ -19,21 +19,25 @@ public class RecursionProduct {
         }
     }
     // define recursionProduct method
-    public static int recursionProduct(int[] intArray, int product) {
+    public static int recursionProduct(int[] intArray, int counter, int product) {
         // base case for when counter == 0
-            // product *= array[0]
-        // recursive case for when counter > 0
-            // product *= recursionProduct(array[N-1])
-        // return product
-        return product;
+        if (counter == 0) {
+            product *= intArray[counter];
+            System.out.printf("Current index is: %d \nProduct is: %d\n", counter, product);
+            return product;
+        }
+        // recursive case for when counter > 0 
+        else {
+            product *= intArray[counter];
+            System.out.printf("Current index is: %d \nProduct is: %d\n", counter, product);
+            return recursionProduct(intArray, counter - 1, product);
+        }
     }      
     
     public static void main(String[] args) throws Exception {
-        int[] intArray = getUserInput(5);
-        for (int integer: intArray) {
-            System.out.println(integer); 
-        }
-        int product = 0;
-        System.out.println("The product is: " + recursionProduct(intArray, product));
+        int counter = 5;
+        int[] intArray = getUserInput(counter);
+        int product = 1;
+        System.out.println("The product is: " + recursionProduct(intArray, counter - 1, product));
     }
 }
