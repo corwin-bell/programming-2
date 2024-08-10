@@ -19,16 +19,17 @@ public class RecursionProduct {
             return intArray;
         }
     }
+
     // define recursionProduct method
     public static long recursionProduct(long[] intArray, int counter, long product) {
-        // base case for when counter == 0
+        // base case for when counter == array length
         if (counter == intArray.length - 1) {
             String printString = String.format("%d * %d = ", product, intArray[counter]); 
             product *= intArray[counter];
             System.out.println(printString + product);
             return product;
         }
-        // recursive case for when counter > 0 
+        // recursive case for when counter < array length 
         else {
             String printString = String.format("%d * %d = ", product, intArray[counter]); 
             product *= intArray[counter];
@@ -42,6 +43,7 @@ public class RecursionProduct {
         long[] intArray = getUserInput(5);
         long product = 1;
         int counter = 0;
+        
         System.out.println("The product is: " + recursionProduct(intArray, counter, product));
     }
 }
