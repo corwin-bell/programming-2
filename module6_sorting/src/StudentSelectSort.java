@@ -40,18 +40,23 @@ public class StudentSelectSort {
    public static void main(String [] args) {
       // todo: refactor to take student arraylist
       ArrayList<Student> al = new ArrayList<Student>();  
-      al.add(new Student(101,"Vijay",23));  
+      al.add(new Student(105,"Vijay",23));  
       al.add(new Student(106,"Ajay",27));  
-      al.add(new Student(105,"Jai",21));  
+      al.add(new Student(101,"Jai",21));  
       
       System.out.println("unsorted");
       for (int i = 0; i < al.size(); i++) {
          System.out.println(al.get(i));  
       }
 
-      // replace this with a user defined selection sort
       selectionSort(al, new NameComparator());
-      System.out.println("sorted");  
+      System.out.println("sorted by name");  
+      for (int i = 0; i < al.size(); i++) {
+         System.out.println(al.get(i));  
+      }
+
+      selectionSort(al, new RollNoComparator());
+      System.out.println("sorted by roll number");  
       for (int i = 0; i < al.size(); i++) {
          System.out.println(al.get(i));  
       }
