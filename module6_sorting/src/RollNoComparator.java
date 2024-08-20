@@ -8,8 +8,8 @@ class RollNoComparator implements Comparator<Student> {
     }
     
     public static void main(String[] args) {
-        Student s1 = new Student(101,"Vijay",23);  
-        Student s2 = new Student(106,"Vijay",27);
+        Student s1 = new Student(101,"Vijay","123 Main St");  
+        Student s2 = new Student(106,"Vijay","456 Center St");
         RollNoComparator nc = new RollNoComparator();
         System.out.println(nc.compare(s2,s1));
     }
