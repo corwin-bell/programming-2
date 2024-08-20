@@ -9,7 +9,7 @@ class NameComparator implements Comparator<Student> {
     
     public static void main(String[] args) {
         Student s1 = new Student(101,"Vijay","123 Main St");  
-        Student s2 = new Student(106,"Vijay","456 Center St");
+        Student s2 = new Student(106,"Ajay","456 Center St");
         NameComparator nc = new NameComparator();
         System.out.println(nc.compare(s2,s1));
     }

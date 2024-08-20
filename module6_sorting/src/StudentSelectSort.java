@@ -21,16 +21,13 @@ public class StudentSelectSort {
       Student temp;      // Temporary variable for swap
  
       for (i = 0; i < studentList.size() - 1; ++i) {
- 
          // Find index of smallest remaining element
          indexSmallest = i;
          for (j = i + 1; j < studentList.size(); ++j) {
-
             if (comparator.compare(studentList.get(j), studentList.get(indexSmallest)) < 0) {
                indexSmallest = j;
             }
          }
-
          // Swap numbers[i] and numbers[indexSmallest]
          temp = studentList.get(i);
          studentList.set(i, studentList.get(indexSmallest));
@@ -53,19 +50,21 @@ public class StudentSelectSort {
          )
       );
       
-      System.out.println("\nunsorted");
+      System.out.println("\nUnsorted");
       for (int i = 0; i < studentList.size(); i++) {
          System.out.println(studentList.get(i));  
       }
 
+      // Sort by student name
       selectionSort(studentList, new NameComparator());
-      System.out.println("\nsorted by name");  
+      System.out.println("\nSorted by name");  
       for (int i = 0; i < studentList.size(); i++) {
          System.out.println(studentList.get(i));  
       }
 
+      // Sort by student roll number
       selectionSort(studentList, new RollNoComparator());
-      System.out.println("\nsorted by roll number");  
+      System.out.println("\nSorted by roll number");  
       for (int i = 0; i < studentList.size(); i++) {
          System.out.println(studentList.get(i));  
       }
