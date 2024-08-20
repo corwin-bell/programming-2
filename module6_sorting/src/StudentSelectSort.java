@@ -10,6 +10,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class StudentSelectSort {
@@ -38,27 +39,35 @@ public class StudentSelectSort {
    }
  
    public static void main(String [] args) {
-      // todo: refactor to take student arraylist
-      ArrayList<Student> al = new ArrayList<Student>();  
-      al.add(new Student(105,"Vijay",23));  
-      al.add(new Student(106,"Ajay",27));  
-      al.add(new Student(101,"Jai",21));  
+      ArrayList<Student> studentList = new ArrayList<>(Arrays.asList(
+         new Student(105,"John","123 Main St"),
+         new Student(106,"Frank","123 Main St"),
+         new Student(107,"Anne","123 Main St"),
+         new Student(108,"Zack","123 Main St"),
+         new Student(109,"George","123 Main St"),
+         new Student(110,"Lawrence","123 Main St"),
+         new Student(101,"Peter","123 Main St"),
+         new Student(102,"Zoe","123 Main St"),
+         new Student(103,"Barbara","123 Main St"),
+         new Student(104,"Mary","123 Main St")
+         )
+      );
       
-      System.out.println("unsorted");
-      for (int i = 0; i < al.size(); i++) {
-         System.out.println(al.get(i));  
+      System.out.println("\nunsorted");
+      for (int i = 0; i < studentList.size(); i++) {
+         System.out.println(studentList.get(i));  
       }
 
-      selectionSort(al, new NameComparator());
-      System.out.println("sorted by name");  
-      for (int i = 0; i < al.size(); i++) {
-         System.out.println(al.get(i));  
+      selectionSort(studentList, new NameComparator());
+      System.out.println("\nsorted by name");  
+      for (int i = 0; i < studentList.size(); i++) {
+         System.out.println(studentList.get(i));  
       }
 
-      selectionSort(al, new RollNoComparator());
-      System.out.println("sorted by roll number");  
-      for (int i = 0; i < al.size(); i++) {
-         System.out.println(al.get(i));  
+      selectionSort(studentList, new RollNoComparator());
+      System.out.println("\nsorted by roll number");  
+      for (int i = 0; i < studentList.size(); i++) {
+         System.out.println(studentList.get(i));  
       }
    }
 }
