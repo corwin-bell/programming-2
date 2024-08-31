@@ -1,4 +1,5 @@
-import java.util.*;  
+import java.util.*;
+/** user defined Comparator class that compares two student objects based on roll number. */  
 class RollNoComparator implements Comparator<Student> {  
     @Override
     public int compare(Student o1, Student o2) {  

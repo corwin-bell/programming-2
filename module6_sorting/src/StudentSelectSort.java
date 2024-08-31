@@ -14,6 +14,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class StudentSelectSort {
+   /**
+    * custom implementation of selection sort for Student objects and comparators.
+    * @param studentList list of student objects.
+    * @param comparator user defined Student object comparator.
+    */
    public static void selectionSort(ArrayList<Student> studentList, Comparator<Student> comparator) {
       int i;
       int j;

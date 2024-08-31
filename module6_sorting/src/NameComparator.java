@@ -1,4 +1,5 @@
-import java.util.*;  
+import java.util.*;
+/** user defined Comparator class that compares Student objects based on student name. */  
 class NameComparator implements Comparator<Student> {  
     @Override
     public int compare(Student o1, Student o2) {  
