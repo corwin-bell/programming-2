@@ -7,7 +7,11 @@ import java.util.Scanner;
 
 public class RecursionProduct {
     
-    // get set of integers from user
+    /**
+     * requests a set number of integers from user.
+     * @param len the number of integers to get from user.
+     * @return an array of integers the user provided.
+     */
     public static long[] getUserInput(int len) {
         // try with resources block to ensure scanner closes after use
         try (Scanner scnr = new Scanner(System.in);) {
@@ -20,7 +24,13 @@ public class RecursionProduct {
         }
     }
 
-    // define recursionProduct method
+    /**
+     * recursive method for calculating the product of a set of integers.
+     * @param intArray array of input integers to multiply.
+     * @param counter must be set to zero, incremented with each recursive call to converge on array length.
+     * @param product the product of the input array elements, iteratively updated with each recuursive function call.
+     * @return product after each method call.
+     */
     public static long recursionProduct(long[] intArray, int counter, long product) {
         // base case for when counter == array length
         if (counter == intArray.length - 1) {
