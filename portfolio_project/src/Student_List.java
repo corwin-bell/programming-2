@@ -1,14 +1,12 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.lang.IndexOutOfBoundsException;
+
 public class Student_List {
-    
-    // TODO: update all mentions of autos to students
     public static void main(String[] args) throws Exception {
         LinkedList<Student> studentList = new LinkedList<>();
         String command = "";
@@ -19,8 +17,8 @@ public class Student_List {
                 if (command.equalsIgnoreCase("addStudent")) {
                     addStudent(studentList, scnr);
                 }
-                else if (command.equalsIgnoreCase("listStudends")) {
-                    listStudends(studentList);
+                else if (command.equalsIgnoreCase("listStudents")) {
+                    listStudents(studentList);
                 }
                 else if (command.equalsIgnoreCase("removeStudent")) {
                     removeStudent(studentList, scnr);
@@ -38,22 +36,19 @@ public class Student_List {
     }
     
     public static void addStudent(LinkedList<Student> studentList, Scanner scnr) {
-        // add new auto to studentList inventory
+        // add new student to studentList inventory
         try {
-            System.out.println("Enter make(String)");
-            String make = scnr.next();
-            System.out.println("Enter model(String)");
-            String model = scnr.next();
-            System.out.println("Enter color(String)");
-            String color = scnr.next();
-            System.out.println("Enter year(int)");
-            int year = scnr.nextInt();
-            System.out.println("Enter mileage(int)");
-            int mileage = scnr.nextInt();
-            
-            Student auto = new Student(make, model, color, year, mileage);
-            studentList.add(auto);
-            System.out.println("auto added");
+            System.out.println("Enter student GPA: ");
+            double gpa = scnr.nextDouble();
+            scnr.nextLine();
+            System.out.println("Enter student name: ");
+            String name = scnr.nextLine();
+            System.out.println("Enter student address: ");
+            String address = scnr.nextLine();
+            Student student = new Student(gpa, name, address);
+            studentList.add(student);
+            System.out.println("student added");
+            // TODO: why does it not go back to main while loop options?
         }
         catch (InputMismatchException e) {
             System.err.println("must enter correct data type for each field");
@@ -63,65 +58,56 @@ public class Student_List {
         }
     }
     
-    public static void listStudends(LinkedList<Student> studentList) {
+    public static void listStudents(LinkedList<Student> studentList) {
         // print all autos in inventory to a new line
         if (studentList.isEmpty()) {
-            System.out.println("Auto inventory is empty, add an auto in order to list an inventory.");
+            System.out.println("Student list is empty, add a student in order to list.");
         }
         else {
-            studentList.forEach((auto) -> System.out.println(auto.getautoInfo()));
+            // TODO: check if getNext faster than forEach
+            studentList.forEach((student) -> System.out.println(student.toString()));
         } 
     }
     
     public static void removeStudent(LinkedList<Student> studentList, Scanner scnr) { 
-        // remove auto from inventory based on index from user input
+        // remove student from inventory based on index from user input
         try {
             System.out.print("Enter studentList index to remove: ");
             int index = scnr.nextInt();
             studentList.remove(index);
-            System.out.printf("Auto index: %d removed\n", index);
+            System.out.printf("student index: %d removed\n", index);
         }
         catch (InputMismatchException e) {
-            System.err.println("must enter correct data type for each field");
+            System.err.println("must enter integer for student index");
         }
         catch (IndexOutOfBoundsException e) {
-            System.err.println("Auto index not found");
+            System.err.println("student index not found");
         }
     }
     
     public static void updateStudent(LinkedList<Student> studentList, Scanner scnr) {
-        // access auto class getters for selected auto index in inventory
+        // access student class getters for selected student index in inventory
         try {
-            System.out.print("Enter an auto index to update: ");
+            System.out.print("Enter an student index to update: ");
             int index = scnr.nextInt();
             scnr.nextLine();
-            System.out.println(studentList.get(index).getautoInfo());
+            System.out.println(studentList.get(index).toString());
             System.out.print("Enter field to update: ");
             String field = scnr.nextLine();
-            if (field.equalsIgnoreCase("make")) {
+            if (field.equalsIgnoreCase("gpa")) {
                 System.out.print("Enter new value: ");
-                studentList.get(index).setMake(scnr.nextLine());
-                System.out.println("make updated");
+                studentList.get(index).setGpa(scnr.nextDouble());
+                System.out.println("GPA updated");
             }
-            else if (field.equalsIgnoreCase("model")) {
+            else if (field.equalsIgnoreCase("name")) {
                 System.out.print("Enter new value: ");
-                studentList.get(index).setModel(scnr.nextLine());
-                System.out.println("model updated");
+                studentList.get(index).setName(scnr.nextLine());
+                System.out.println("name updated");
             }
-            else if (field.equalsIgnoreCase("color")) {
+            else if (field.equalsIgnoreCase("address")) {
                 System.out.print("Enter new value: ");
-                studentList.get(index).setColor(scnr.nextLine());
-                System.out.println("color updated");
-            }
-            else if (field.equalsIgnoreCase("year")) {
-                System.out.print("Enter new value: ");
-                studentList.get(index).setYear(scnr.nextInt());
-                System.out.println("year updated");
-            }
-            else if (field.equalsIgnoreCase("mileage")) {
-                System.out.print("Enter new value: ");
-                studentList.get(index).setMileage(scnr.nextInt());
-                System.out.println("mileage updated");
+                studentList.get(index).setAddress(scnr.nextLine());
+                System.out.println("address updated");
             }
             else {
                 System.out.println("Field not found");
@@ -131,7 +117,7 @@ public class Student_List {
             System.err.println("must enter correct data type for each field");
         }
         catch (IndexOutOfBoundsException e) {
-            System.err.println("Auto index not found");
+            System.err.println("student index not found");
         }
         catch (Exception e) {
             System.err.println(e.getMessage());
@@ -140,13 +126,13 @@ public class Student_List {
 
     public static void exportStudentList(LinkedList<Student> studentList, Scanner scnr) {
         // export inventory to file in current directory
-        System.out.print("Enter file path: ");
+        System.out.print("Enter file path and name: ");
         String filePath = scnr.nextLine();
 
         // Try-with-resources to ensure the file is closed after writing
         try (FileWriter fileWriter = new FileWriter(filePath);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
-            studentList.forEach((auto) -> printWriter.println(auto.getautoInfo()));
+            studentList.forEach((student) -> printWriter.println(student.toString()));
             System.out.println("export to file successful");
         } catch (IOException e) {
             e.printStackTrace();
