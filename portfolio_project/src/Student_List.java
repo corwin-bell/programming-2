@@ -39,14 +39,14 @@ public class Student_List {
     public static void addStudent(LinkedList<Student> studentList, Scanner scnr) {
         // add new student to studentList inventory
         try {
-            System.out.println("Enter student GPA: ");
-            double gpa = scnr.nextDouble();
-            scnr.nextLine();
             System.out.println("Enter student name: ");
             String name = scnr.nextLine();
             System.out.println("Enter student address: ");
             String address = scnr.nextLine();
-            Student student = new Student(gpa, name, address);
+            System.out.println("Enter student GPA: ");
+            double gpa = scnr.nextDouble();
+            scnr.nextLine();
+            Student student = new Student(name, address, gpa);
             studentList.add(student);
             System.out.println("student added");
             // TODO: why does it not go back to main while loop options?
@@ -65,7 +65,6 @@ public class Student_List {
             System.out.println("Student list is empty, add a student in order to list.");
         }
         else {
-            // TODO: check if getNext faster than forEach
             studentList.forEach((student) -> System.out.println(student.toString()));
         } 
     }
@@ -133,8 +132,9 @@ public class Student_List {
         // Try-with-resources to ensure the file is closed after writing
         try (FileWriter fileWriter = new FileWriter(filePath);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
-            // sort student 
+            // sort students ascending 
             Collections.sort(studentList, new NameComparator());    
+            // add students to text file
             studentList.forEach((student) -> printWriter.println(student.toString()));
             System.out.println("export to file successful");
         } catch (IOException e) {

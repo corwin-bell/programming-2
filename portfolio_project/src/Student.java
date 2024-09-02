@@ -3,36 +3,39 @@
  * The Student class also includes  a parameterized constructor and methods for setting and getting student information.
  */
 public class Student {
-    private double gpa;  
     private String name;  
     private String address;  
-    
+    private double gpa;  
     /**
      * Default Student class constructor.
      */
     Student() {
-        this.gpa = 0;
         this.name = "";
         this.address = "";
+        this.gpa = 0;
     }
 
     /**
      * Parameterized constructor for Student class.
-     * @param gpa student grade point average.
      * @param name student name.
      * @param address student home address.
+     * @param gpa student grade point average.
      */
-    Student(double gpa, String name, String address) throws Exception{  
+    Student(String name, String address, double gpa) throws Exception{  
         if (gpa < 0) {
             throw new Exception("gpa must be a positive double");
         }
         else {
-            this.gpa = gpa;  
             this.name = name;  
-            this.address = address;    
+            this.address = address;
+            this.gpa = gpa;      
         }
     }
     
+    public void setName(String name) { this.name = name; }
+    public String getName() { return name; }
+    public void setAddress(String address) { this.address = address; }
+    public String getAddress() { return address; }
     public void setGpa(double gpa) throws Exception{ 
         if (gpa < 0) {
             throw new Exception("gpa must be a positive double");
@@ -42,25 +45,21 @@ public class Student {
         }
     }
     public double getGpa() { return gpa; }
-    public void setName(String name) { this.name = name; }
-    public String getName() { return name; }
-    public void setAddress(String address) { this.address = address; }
-    public String getAddress() { return address; }
 
     @Override
     public String toString() {
-        return String.format("GPA: %.2f, name: %s, address: %s", getGpa(), getName(), getAddress());
+        return String.format("name: %s, address: %s, GPA: %.2f", getName(), getAddress(), getGpa());
     }
     public static void main(String[] args) {
+        
         // test parameterized constructor, getters, and toString
         try {
-            Student student = new Student(-3.5, "Testy Testerman", "123 Test St");
+            Student student = new Student("Testy Testerman", "123 Test St", 3.5);
             System.out.println("student parameterized constructor test: " + student.toString());    
         } 
         catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        
         
         // test default constructor
         Student student2 = new Student();
@@ -76,6 +75,5 @@ public class Student {
         student2.setName("Test Testerman Jr.");
         student2.setAddress("456 Test Ave");
         System.out.println("student2 setters test: " + student2.toString());
-
     }
 }
