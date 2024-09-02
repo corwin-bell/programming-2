@@ -1,1 +1,4 @@
-GPA: 4.00, name: Frank Smith Jr., address: 123 Main Ave
+GPA: 3.50, name: Alvin Bailey, address: 567 Center Ave
+GPA: 3.00, name: Greg Smith, address: 345 Main ST
+GPA: 3.75, name: Sarah Jones, address: 876 Wall St
+GPA: 2.50, name: Zane Frank, address: 123 Main St
