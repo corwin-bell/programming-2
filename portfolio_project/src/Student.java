@@ -22,13 +22,25 @@ public class Student {
      * @param name student name.
      * @param address student home address.
      */
-    Student(double gpa, String name, String address) {  
-        this.gpa = gpa;  
-        this.name = name;  
-        this.address = address;  
+    Student(double gpa, String name, String address) throws Exception{  
+        if (gpa < 0) {
+            throw new Exception("gpa must be a positive double");
+        }
+        else {
+            this.gpa = gpa;  
+            this.name = name;  
+            this.address = address;    
+        }
     }
     
-    public void setGpa(double gpa) { this.gpa = gpa; }
+    public void setGpa(double gpa) throws Exception{ 
+        if (gpa < 0) {
+            throw new Exception("gpa must be a positive double");
+        }
+        else {
+            this.gpa = gpa; 
+        }
+    }
     public double getGpa() { return gpa; }
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
@@ -41,15 +53,26 @@ public class Student {
     }
     public static void main(String[] args) {
         // test parameterized constructor, getters, and toString
-        Student student = new Student(3.5, "Testy Testerman", "123 Test St");
-        System.out.println("student parameterized constructor test: " + student.toString());
+        try {
+            Student student = new Student(-3.5, "Testy Testerman", "123 Test St");
+            System.out.println("student parameterized constructor test: " + student.toString());    
+        } 
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        
         
         // test default constructor
         Student student2 = new Student();
         System.out.println("student2 default constructor test: " + student2.toString());
 
         // test setters
-        student2.setGpa(3.75);
+        try {
+            student2.setGpa(3.75);    
+        } 
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
         student2.setName("Test Testerman Jr.");
         student2.setAddress("456 Test Ave");
         System.out.println("student2 setters test: " + student2.toString());
