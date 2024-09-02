@@ -20,4 +20,14 @@ Validate numeric data for Grade Point Average (GPA).
 
 Compile your Lessons Learned Reflection, source code, screenshots of the application executing, and results into a single document.
 
+### Adding Students
+![add student command](image.png)
+
+### Listing Students unsorted
+![list command and output](image-1.png)
+
+### Export sorted student list to text file
+![export command](image-2.png)
+![sorted text file](image-3.png)
+
 
