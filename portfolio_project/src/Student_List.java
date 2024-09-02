@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.lang.IndexOutOfBoundsException;
@@ -132,6 +133,8 @@ public class Student_List {
         // Try-with-resources to ensure the file is closed after writing
         try (FileWriter fileWriter = new FileWriter(filePath);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
+            // sort student 
+            Collections.sort(studentList, new NameComparator());    
             studentList.forEach((student) -> printWriter.println(student.toString()));
             System.out.println("export to file successful");
         } catch (IOException e) {
