@@ -30,7 +30,7 @@ public class Student_List {
                 else if (command.equalsIgnoreCase("exportStudentList")) {
                     exportStudentList(studentList, scnr);
                 }
-                else {
+                else if (!command.equalsIgnoreCase("quit")) {
                     System.out.println("Command not recognized");
                 }
             }   
