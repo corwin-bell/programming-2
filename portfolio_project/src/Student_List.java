@@ -12,7 +12,7 @@ public class Student_List {
         LinkedList<Student> studentList = new LinkedList<>();
         String command = "";
         try (Scanner scnr = new Scanner(System.in)) {
-            do {
+            while (!command.equalsIgnoreCase("quit")) {
                 System.out.println("Commands: 'addStudent', 'listStudents', 'removeStudent', 'updateStudent','exportStudentList', 'quit'");
                 command = scnr.nextLine();
                 if (command.equalsIgnoreCase("addStudent")) {
@@ -30,9 +30,10 @@ public class Student_List {
                 else if (command.equalsIgnoreCase("exportStudentList")) {
                     exportStudentList(studentList, scnr);
                 }
-                scnr.nextLine(); // clears scanner before next userInput
-            }
-            while (!command.equalsIgnoreCase("quit"));   
+                else {
+                    System.out.println("Command not recognized");
+                }
+            }   
         }       
     }
     
@@ -45,11 +46,10 @@ public class Student_List {
             String address = scnr.nextLine();
             System.out.println("Enter student GPA: ");
             double gpa = scnr.nextDouble();
-            scnr.nextLine();
+            scnr.nextLine(); // clear scnr for next input
             Student student = new Student(name, address, gpa);
             studentList.add(student);
             System.out.println("student added");
-            // TODO: why does it not go back to main while loop options?
         }
         catch (InputMismatchException e) {
             System.err.println("must enter correct data type for each field");
@@ -60,7 +60,7 @@ public class Student_List {
     }
     
     public static void listStudents(LinkedList<Student> studentList) {
-        // print all autos in inventory to a new line
+        // print all students in list to a new line
         if (studentList.isEmpty()) {
             System.out.println("Student list is empty, add a student in order to list.");
         }
@@ -74,6 +74,7 @@ public class Student_List {
         try {
             System.out.print("Enter studentList index to remove: ");
             int index = scnr.nextInt();
+            scnr.nextLine();
             studentList.remove(index);
             System.out.printf("student index: %d removed\n", index);
         }
@@ -90,13 +91,14 @@ public class Student_List {
         try {
             System.out.print("Enter an student index to update: ");
             int index = scnr.nextInt();
-            scnr.nextLine();
+            scnr.nextLine(); // clear scnr for next input
             System.out.println(studentList.get(index).toString());
             System.out.print("Enter field to update: ");
             String field = scnr.nextLine();
             if (field.equalsIgnoreCase("gpa")) {
                 System.out.print("Enter new value: ");
                 studentList.get(index).setGpa(scnr.nextDouble());
+                scnr.nextLine(); //clear scnr for next input
                 System.out.println("GPA updated");
             }
             else if (field.equalsIgnoreCase("name")) {
