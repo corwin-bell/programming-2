@@ -1,11 +1,4 @@
 # Portfolio Project
-## Lessons Learned Reflection
-Write a summary outlining the lessons you have learned in this programming course. Reflect on how these lessons can be applied to effective coding.
-This essay portion of your Portfolio must:
-- Be 2-3 pages in length (not including the required title and references pages)
-- Be formatted according to APA guidelines in the CSU Global Writing CenterLinks to an external site.
-- Include at least three outside references from the course readings, formatted according to APA requirements.
-
 ## Final Program
 Write a Java program that incorporates a loop that prompts the user for student data. Student data are private fields in a student class including:
 - String name

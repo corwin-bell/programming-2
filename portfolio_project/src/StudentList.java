@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.lang.IndexOutOfBoundsException;
 
-public class Student_List {
+public class StudentList {
     public static void main(String[] args) throws Exception {
         LinkedList<Student> studentList = new LinkedList<>();
         String command = "";
